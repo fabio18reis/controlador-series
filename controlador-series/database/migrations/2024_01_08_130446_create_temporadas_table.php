@@ -13,15 +13,10 @@ return new class extends Migration
     {
         Schema::create('temporadas', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->foreignId('serie_id')->constrained('series');
             $table->integer('numero');
-            $table -> integer('serie_id');
-
-
-
-            $table ->foreign('serie_id')
-            ->references('id')
-            ->on('series');
-            
+            $table->date('estreia');
+            $table->timestamps();
         });
     }
 

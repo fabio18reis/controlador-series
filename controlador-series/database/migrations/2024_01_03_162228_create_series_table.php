@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('series', function(Blueprint $table){
-            $table->increments('id');
-            $table -> string ('nome');
-            
+        Schema::create('series', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('nome');
+            $table->timestamps();
         });
     }
 
@@ -23,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('series');
     }
 };
