@@ -16,6 +16,8 @@
         @foreach ($series as $serie)
             <li class="list-group-item justify-content-between d-flex align-items-center">{{ $serie->nome }}
                 <div class="d-flex align-items-end justify-content-between m-2">
+                    <a href="/series/{{ $serie->id }}" class="btn btn-info btn-sm mr-2"><i
+                            class="fa-solid fa-play"></i></a>
                     <form action="/series/remover/{{ $serie->id }}" method="POST"
                         onsubmit="return confirm('Tem certeza que deseja excluir a série {{ addslashes($serie->nome) }}?')">
                         @csrf

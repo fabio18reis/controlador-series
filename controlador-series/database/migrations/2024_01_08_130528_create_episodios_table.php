@@ -13,15 +13,11 @@ return new class extends Migration
     {
         Schema::create('episodios', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('nome');
             $table->integer('numero');
-            $table-> integer('temporada_id');
-            
-
-            $table->foreign('temporada_id')
-            ->references('id')
-            ->on ('temporadas');
-            
-
+            $table->date('estreia');
+            $table->foreignId('temporada_id')->constrained('temporadas');
+            $table->timestamps();
         });
     }
 
